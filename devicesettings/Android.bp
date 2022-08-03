@@ -14,8 +14,8 @@ android_app {
     privileged: true,
 
     static_libs: [
-        "org.lineageos.platform.internal",
-        "org.lineageos.settings.resources",
+        "VendorSupport-preference",
+        "com.libremobileos.settings.resources",
         "SettingsLib",
         "setupdesign",
     ],

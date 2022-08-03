@@ -22,7 +22,7 @@ import android.widget.AdapterView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 
-import org.lineageos.internal.util.FileUtils;
+import com.libremobileos.support.util.FileUtils;
 import org.lineageos.settings.device.keyboard.Constants;
 import org.lineageos.settings.device.R;
 
