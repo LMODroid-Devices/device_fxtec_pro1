@@ -195,7 +195,6 @@ PRODUCT_PACKAGES += \
     libdisplayconfig \
     libqdMetaData.system \
     libtinyxml \
-    libtinyxml.vendor \
     libvulkan \
     memtrack.msm8998
 
@@ -383,12 +382,7 @@ PRODUCT_COPY_FILES += \
 
 # QMI
 PRODUCT_PACKAGES += \
-    libjson \
-    libjson.vendor
-
-# Recovery
-PRODUCT_PACKAGES += \
-    librecovery_updater_fxtec
+    libjson
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
