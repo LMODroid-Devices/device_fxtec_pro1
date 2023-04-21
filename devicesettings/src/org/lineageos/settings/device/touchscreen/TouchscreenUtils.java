@@ -20,7 +20,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import org.lineageos.internal.util.FileUtils;
+import com.libremobileos.support.util.FileUtils;
 import org.lineageos.settings.device.R;
 
 public class TouchscreenUtils {
