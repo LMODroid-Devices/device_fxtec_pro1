@@ -394,6 +394,12 @@ firmware_directories /vendor/firmware_mnt/image/
 
 /sys/devices/virtual/hdcp/msm_hdcp  min_level_change 0664    system  graphics
 
+# socinfo
+/sys/devices/soc0           serial_number            0000    root    root
+
+# Charger
+/sys/class/power_supply/battery  charging_enabled    0660    system  system
+
 #QG device
 /dev/qg               0660   system     system
 /dev/qg_battery       0660   system     system
