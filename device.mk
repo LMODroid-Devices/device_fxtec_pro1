@@ -17,6 +17,10 @@
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
+# Add common definitions for Qualcomm
+$(call inherit-product, hardware/qcom-caf/common/common.mk)
+
+# Get non-open-source specific aspects
 $(call inherit-product, vendor/fxtec/pro1/pro1-vendor.mk)
 
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := true
@@ -167,6 +171,10 @@ PRODUCT_PACKAGES += \
     camera.device@3.2-impl \
     vendor.qti.hardware.camera.device@1.0:64
 
+# Configstore
+PRODUCT_PACKAGES += \
+    disable_configstore
+
 # Device settings
 PRODUCT_PACKAGES += \
     DeviceSettings
@@ -208,10 +216,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     FM2 \
     qcom.fmradio
-
-# For android_filesystem_config.h
-PRODUCT_PACKAGES += \
-    fs_config_files
 
 # Gatekeeper
 # Note: gatekeeper 4.0 must be blobs to match firmware
@@ -300,7 +304,8 @@ PRODUCT_COPY_FILES += \
 # Keymaster
 # Note: keymaster 4.0 must be blobs to match firmware
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@4.0.vendor
+    android.hardware.keymaster@4.0.vendor \
+    libion.vendor:64
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -386,7 +391,8 @@ PRODUCT_COPY_FILES += \
 
 # QMI
 PRODUCT_PACKAGES += \
-    libjson
+    libjson \
+    libsqlite.vendor:64
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
