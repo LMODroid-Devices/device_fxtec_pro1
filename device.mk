@@ -394,10 +394,6 @@ PRODUCT_PACKAGES += \
     libjson \
     libsqlite.vendor:64
 
-# RenderScript HAL
-PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl
-
 # RIL
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.5.vendor \
@@ -429,6 +425,7 @@ PRODUCT_PACKAGES += \
     android.frameworks.sensorservice@1.0.vendor \
     android.hardware.sensors@1.0-impl:64 \
     android.hardware.sensors@1.0-service \
+    libpower.vendor \
     libsensorndkbridge
 
 # Soong namespaces
