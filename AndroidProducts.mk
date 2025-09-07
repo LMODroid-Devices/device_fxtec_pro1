@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_pro1.mk
+    $(LOCAL_DIR)/lmodroid_pro1.mk
