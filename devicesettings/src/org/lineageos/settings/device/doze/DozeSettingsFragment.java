@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
- *               2017-2023 The LineageOS Project
+ *               2017-2025 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,27 +17,23 @@
 
 package org.lineageos.settings.device.doze;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.CompoundButton;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceFragment;
+import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.settingslib.widget.MainSwitchPreference;
 
 import org.lineageos.settings.device.R;
 
-public class DozeSettingsFragment extends PreferenceFragment
+public class DozeSettingsFragment extends PreferenceFragmentCompat
         implements CompoundButton.OnCheckedChangeListener, Preference.OnPreferenceChangeListener {
 
     private MainSwitchPreference mSwitchBar;
@@ -51,10 +47,10 @@ public class DozeSettingsFragment extends PreferenceFragment
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        addPreferencesFromResource(R.xml.doze_settings);
+        setPreferencesFromResource(R.xml.doze_settings, rootKey);
 
         SharedPreferences prefs = getActivity().getSharedPreferences("doze_settings",
-                Activity.MODE_PRIVATE);
+                Context.MODE_PRIVATE);
         if (savedInstanceState == null && !prefs.getBoolean("first_help_shown", false)) {
             showHelp();
         }
@@ -132,7 +128,7 @@ public class DozeSettingsFragment extends PreferenceFragment
                 .setPositiveButton(R.string.dialog_ok,
                         (dialog, which) -> {
                             getActivity()
-                                    .getSharedPreferences("doze_settings", Activity.MODE_PRIVATE)
+                                    .getSharedPreferences("doze_settings", Context.MODE_PRIVATE)
                                     .edit()
                                     .putBoolean("first_help_shown", true)
                                     .commit();

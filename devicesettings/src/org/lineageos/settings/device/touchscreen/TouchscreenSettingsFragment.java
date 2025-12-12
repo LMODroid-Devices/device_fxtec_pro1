@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020-2022 The LineageOS Project
+ * Copyright (C) 2020-2025 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,15 +19,15 @@ package org.lineageos.settings.device.touchscreen;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 
-import androidx.preference.PreferenceFragment;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceManager;
 
 import com.libremobileos.util.FileUtils;
 import org.lineageos.settings.device.R;
 import org.lineageos.settings.device.widget.SeekBarPreference;
 
-public class TouchscreenSettingsFragment extends PreferenceFragment
+public class TouchscreenSettingsFragment extends PreferenceFragmentCompat
         implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private static final String TAG = TouchscreenSettingsFragment.class.getSimpleName();
@@ -37,7 +37,7 @@ public class TouchscreenSettingsFragment extends PreferenceFragment
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        addPreferencesFromResource(R.xml.touchscreen_panel);
+        setPreferencesFromResource(R.xml.touchscreen_panel, rootKey);
 
         mMarginSeekBar = findPreference(Constants.TOUCHSCREEN_MARGIN_KEY);
 

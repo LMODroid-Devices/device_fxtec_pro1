@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020-2022 The LineageOS Project
+ * Copyright (C) 2020-2025 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,12 +22,12 @@ import android.hardware.input.InputDeviceIdentifier;
 import android.hardware.input.InputManager;
 import android.os.Bundle;
 import android.os.SystemProperties;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.preference.ListPreference;
-import androidx.preference.PreferenceFragment;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.libremobileos.util.FileUtils;
@@ -35,7 +35,7 @@ import org.lineageos.settings.device.R;
 
 import java.io.File;
 
-public class KeyboardSettingsFragment extends PreferenceFragment
+public class KeyboardSettingsFragment extends PreferenceFragmentCompat
         implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private static final String TAG = KeyboardSettingsFragment.class.getSimpleName();
@@ -51,7 +51,7 @@ public class KeyboardSettingsFragment extends PreferenceFragment
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        addPreferencesFromResource(R.xml.keyboard_panel);
+        setPreferencesFromResource(R.xml.keyboard_panel, rootKey);
 
         mLayoutPref = findPreference(Constants.KEYBOARD_LAYOUT_KEY);
         mKeymapCustomPref = findPreference(Constants.KEYBOARD_KEYMAP_CUSTOM_KEY);
